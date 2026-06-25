@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.18.1/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <button id="loadBtn">데이터가지고오기</button>
+    <div id="content"></div>
+    <script>
+      document.getElementById("loadBtn").addEventListener("click", async () => {
+        try {
+          const response = await axios.get(
+            "https://jsonplaceholder.typicode.com/posts/123123",
+          );
+
+          console.log("받아온 데이터1 : " + response);
+          console.log("받아온 데이터2 : " + response.data);
+
+          document.getElementById("content").textContent = response.data.title;
+          // 즉 if(!response.ok) <.. 코드 필요 없음
+        } catch (e) {
+          console.log("에러 404, 500 번대 자동으로 catch 로 빠짐");
+        }
+      });
+    </script>
+  </body>
+</html>
