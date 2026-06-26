@@ -2,6 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Header from "./components/Header";
 import LoginPage from "./pages/LoginPage";
 import JoinPage from "./pages/joinPage";
+import CountNotState from "./_test/CountNotState";
+import CountState from "./_test/CountState";
+import MainApp from "./_test/MainApp";
 
 /**
  * 1. JSX란
@@ -19,6 +22,10 @@ function App() {
     // 1. 브라우저 라우터로 앱 전체를 감싼 CSR 환경을 구성한다.
     <BrowserRouter>
       <Header />
+
+      {/* 임시코드 */}
+      <MainApp />
+
       {/* JSX 인라인 스타일 문법
       1. 이중괄호 {{}} 의미
       바깥쪽 { } : 지금부터 JSX 안에서 자바스크립트 표현식을 쓰겠다.라는 의미
