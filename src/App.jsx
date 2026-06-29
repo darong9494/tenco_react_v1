@@ -23,9 +23,6 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      {/* 임시코드 */}
-      <MainApp />
-
       {/* JSX 인라인 스타일 문법
       1. 이중괄호 {{}} 의미
       바깥쪽 { } : 지금부터 JSX 안에서 자바스크립트 표현식을 쓰겠다.라는 의미

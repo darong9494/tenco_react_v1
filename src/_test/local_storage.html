@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>브라우저 하드디스크 (localStorage)테스트</h1>
+
+    <button id="btnLogin">1. 데이터 저장(가짜로그인)</button>
+    <button id="btnCheck">1. 데이터 조회(상태확인)</button>
+    <button id="btnLogout">1. 데이터 삭제(로그아웃)</button>
+
+    <div id="result">여기에 결과가 나옵니다.</div>
+
+    <script>
+      const btnLogin = document.getElementById("btnLogin");
+      const btnCheck = document.getElementById("btnCheck");
+      const btnLogout = document.getElementById("btnLogout");
+      const resultDiv = document.getElementById("result");
+
+      // 1. 데이터 저장하기 (로컬 스토리지 사용)
+      btnLogin.addEventListener("click", () => {
+        // 단순 문자열로 저장
+        localStorage.setItem("token", "abc123");
+
+        const userObject = { username: "김텐코", role: "USER" };
+        // 객체 >> 문자열로 바꾸는 JS 문법
+
+        localStorage.setItem("user", JSON.stringify(userObject));
+      });
+
+      // 2. 데이터를 꺼내는 방법
+      btnCheck.addEventListener("click", () => {
+        // 로컬 스토리지에 저장된 데이터 중 키 값이 token인 데이터를 가져오는 방법
+
+        const savedToken = localStorage.getItem("token");
+        const savedUser = JSON.parse(localStorage.getItem("user"));
+
+        resultDiv.innerHTML = savedToken;
+        resultDiv.innerHTML += "<br/>" + savedUser.username;
+        resultDiv.style.color = "green";
+      });
+
+      // 3. 데이터를 삭제하는 방법
+      btnLogout.addEventListener("click", () => {
+        // 로컬 스토리지에 있는 키값 기준으로 데이터를 삭제하는 방법
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+
+        resultDiv.innerHTML = "로그인 정보가 삭제 되었습니다.";
+        resultDiv.style.color = "red";
+      });
+    </script>
+  </body>
+</html>

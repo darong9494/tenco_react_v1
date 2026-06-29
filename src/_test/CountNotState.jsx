@@ -4,12 +4,12 @@ function CountNotState() {
   let count = 0;
 
   const increase = () => {
-    count = count + 1;
+    this.count = count + 1;
     console.log("일반 변수 현재 값 : ", count);
   };
 
   const decrease = () => {
-    count = count - 1;
+    this.count = count - 1;
     console.log("일반 변수 현재 값 : ", count);
   };
 
@@ -17,8 +17,8 @@ function CountNotState() {
     <div style={{ padding: "50px" }}>
       <h3>일반 변수 사용 (화면 갱신 실패)</h3>
       <p style={{ fontSize: "20px" }}>현재 값: {count} </p>
-      <button onClick={increase}>증가</button>
-      <button onClick={decrease}>감소</button>
+      <button onClick={() => increase}>증가</button>
+      <button onClick={() => decrease}>감소</button>
     </div>
   );
 }
